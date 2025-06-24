@@ -707,96 +707,99 @@
         </table>
       </div>
 
-      <div id="maintenance-visits-section" class="card hidden">
+      <div id="maintenance-visits-section" class="card hidden"> <!-- Empezar sección de mantenimientos -->
         <h2>Gestión de Visitas de Mantenimiento</h2>
-        <p><strong>Perfil: Encargado</strong> (muestra todas las visitas y asignación)</p>
-        <button class="btn" onclick="showForm('visit-form')">Asignar Nueva Visita</button>
+        <div id="visits-encargado"> <!-- Empezar vista de encargado -->
+          <p><strong>Perfil: Encargado</strong> (muestra todas las visitas y asignación)</p>
+          <button class="btn" onclick="showForm('visit-form')">Asignar Nueva Visita</button>
 
-        <div id="visit-form" class="form-section hidden">
-          <h3>Asignar/Editar Visita</h3>
-          <input type="text" placeholder="Cliente">
-          <input type="text" placeholder="Dirección">
-          <input type="date" placeholder="Fecha de Visita">
-          <input type="time" placeholder="Hora de Visita">
-          <select>
-            <option value="">Asignar Técnico</option>
-            <option value="hannah">Hannah Smith</option>
-            <option value="juan">Juan Pérez</option>
-          </select>
-          <textarea placeholder="Notas / Tareas a realizar"></textarea>
-          <div class="form-actions">
-            <button class="btn" onclick="hideForm('visit-form')">Guardar Visita</button>
-            <button class="btn btn-secondary" onclick="hideForm('visit-form')">Cancelar</button>
-          </div>
-        </div>
+          <div id="visit-form" class="form-section hidden">
+            <h3>Asignar/Editar Visita</h3>
+            <input type="text" placeholder="Cliente">
+            <input type="text" placeholder="Dirección">
+            <input type="date" placeholder="Fecha de Visita">
+            <input type="time" placeholder="Hora de Visita">
+            <select>
+              <option value="">Asignar Técnico</option>
+              <option value="hannah">Hannah Smith</option>
+              <option value="juan">Juan Pérez</option>
+            </select>
+            <textarea placeholder="Notas / Tareas a realizar"></textarea>
+            <div class="form-actions">
+              <button class="btn" onclick="hideForm('visit-form')">Guardar Visita</button>
+              <button class="btn btn-secondary" onclick="hideForm('visit-form')">Cancelar</button>
+            </div>
+          </div>        
+          <table>
+            <thead>
+              <tr>
+                <th>Cliente</th>
+                <th>Fecha</th>
+                <th>Técnico Asignado</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Liam Lee</td>
+                <td>2023-11-01</td>
+                <td>Hannah Smith</td>
+                <td>Pendiente</td>
+                <td class="table-actions">
+                  <button class="btn btn-secondary" onclick="showForm('visit-form')">Editar</button>
+                  <button class="btn">Completar</button>
+                </td>
+              </tr>
+              <tr>
+                <td>María González</td>
+                <td>2023-10-30</td>
+                <td>Juan Pérez</td>
+                <td>Completada</td>
+                <td class="table-actions">
+                  <button class="btn btn-secondary">Ver Detalles</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Carlos Ruiz</td>
+                <td>2023-11-02</td>
+                <td>Sin Asignar</td>
+                <td>Pendiente</td>
+                <td class="table-actions">
+                  <button class="btn btn-secondary" onclick="showForm('visit-form')">Asignar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div> <!-- Terminar vista de encargado -->
 
-        <table>
-          <thead>
-            <tr>
-              <th>Cliente</th>
-              <th>Fecha</th>
-              <th>Técnico Asignado</th>
-              <th>Estado</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Liam Lee</td>
-              <td>2023-11-01</td>
-              <td>Hannah Smith</td>
-              <td>Pendiente</td>
-              <td class="table-actions">
-                <button class="btn btn-secondary" onclick="showForm('visit-form')">Editar</button>
-                <button class="btn">Completar</button>
-              </td>
-            </tr>
-            <tr>
-              <td>María González</td>
-              <td>2023-10-30</td>
-              <td>Juan Pérez</td>
-              <td>Completada</td>
-              <td class="table-actions">
-                <button class="btn btn-secondary">Ver Detalles</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Carlos Ruiz</td>
-              <td>2023-11-02</td>
-              <td>Sin Asignar</td>
-              <td>Pendiente</td>
-              <td class="table-actions">
-                <button class="btn btn-secondary" onclick="showForm('visit-form')">Asignar</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-        <p style="margin-top: 20px;"><strong>Perfil: Trabajador</strong> (solo vería sus asignaciones y podría cambiar el estado)</p>
-        <table>
-          <thead>
-            <tr>
-              <th>Cliente</th>
-              <th>Fecha</th>
-              <th>Dirección</th>
-              <th>Estado</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Liam Lee</td>
-              <td>2023-11-01</td>
-              <td>Calle Falsa 123</td>
-              <td>Pendiente</td>
-              <td class="table-actions">
-                <button class="btn">Marcar como Realizada</button>
-                <button class="btn btn-secondary">Reportar Problema</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+        <div id="visits-trabajador"> <!-- Empezar vista de trabajadores-->
+          <p style="margin-top: 20px;"><strong>Perfil: Trabajador</strong> (solo vería sus asignaciones y podría cambiar el estado)</p>
+            <table>
+              <thead>
+                <tr>
+                  <th>Cliente</th>
+                  <th>Fecha</th>
+                  <th>Dirección</th>
+                  <th>Estado</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Liam Lee</td>
+                  <td>2023-11-01</td>
+                  <td>Calle Falsa 123</td>
+                  <td>Pendiente</td>
+                  <td class="table-actions">
+                    <button class="btn">Marcar como Realizada</button>
+                    <button class="btn btn-secondary">Reportar Problema</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+        </div> <!-- Terminar vista de trabajador-->
+      </div> 
 
       <div id="maintenance-contracts-section" class="card hidden">
         <h2>Contratos de Mantenimiento</h2>
@@ -1040,6 +1043,10 @@
       const navButtons = document.querySelectorAll('.nav-bar button');
       navButtons.forEach(button => button.classList.remove('hidden'));
 
+      document.getElementById('maintenance-visits-section').classList.add('hidden'); // Ocultar sección completa de mantenimientos
+      document.getElementById('visits-encargado').style.display = 'none'; // Ocultar vista de encargados
+      document.getElementById('visits-trabajador').style.display = 'none'; // Ocultar vista de trabajadores
+      
       if (role === 'cliente') {
         document.getElementById('nav-users').classList.add('hidden');
         document.getElementById('nav-inventory').classList.add('hidden');
@@ -1053,6 +1060,13 @@
         document.getElementById('nav-sales').classList.add('hidden');
         document.getElementById('nav-contracts').classList.add('hidden');
         document.getElementById('nav-planning').classList.add('hidden');
+
+        document.getElementById('maintenance-visits-section').classList.remove('hidden'); // Mostrar sección de trabajadores
+        document.getElementById('visits-trabajador').style.display = 'block'; // Mostrar información
+      
+      } else if (role == 'encargado'){ // Nuevo else if para evaluar si el usuario es un encargado
+        document.getElementById('maintenance-visits-section').classList.remove('hidden'); // Mostrar sección de encargados
+        document.getElementById('visits-encargado').style.display = 'block'; // Mostrar información
       }
     }
 
