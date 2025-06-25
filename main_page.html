@@ -1043,7 +1043,9 @@
       const navButtons = document.querySelectorAll('.nav-bar button');
       navButtons.forEach(button => button.classList.remove('hidden'));
 
-      document.getElementById('maintenance-visits-section').classList.add('hidden'); // Ocultar sección completa de mantenimientos
+      // Al solamente ocultar las secciones de cada rol, la sección completa
+      // está visible solo cuando se ingresa a ella, luego, se evalúa el rol del trabajador y muestra lo indicado para cada uno
+
       document.getElementById('visits-encargado').style.display = 'none'; // Ocultar vista de encargados
       document.getElementById('visits-trabajador').style.display = 'none'; // Ocultar vista de trabajadores
       
@@ -1061,12 +1063,12 @@
         document.getElementById('nav-contracts').classList.add('hidden');
         document.getElementById('nav-planning').classList.add('hidden');
 
-        document.getElementById('maintenance-visits-section').classList.remove('hidden'); // Mostrar sección de trabajadores
-        document.getElementById('visits-trabajador').style.display = 'block'; // Mostrar información
+        document.getElementById('visits-trabajador').style.display = 'block';
       
-      } else if (role == 'encargado'){ // Nuevo else if para evaluar si el usuario es un encargado
-        document.getElementById('maintenance-visits-section').classList.remove('hidden'); // Mostrar sección de encargados
-        document.getElementById('visits-encargado').style.display = 'block'; // Mostrar información
+      } else if (role == 'encargado'){
+
+        document.getElementById('visits-encargado').style.display = 'block';
+
       }
     }
 
